@@ -1,0 +1,37 @@
+@import (reference) '~antd/es/style/themes/index';
+@compenent-prefix-cls: ~'biz-query-form';
+
+.ant-form.@{compenent-prefix-cls} {
+  padding: @padding-md 0 0;
+
+  .@{compenent-prefix-cls}-row {
+    row-gap: @margin-sm;
+    align-items: flex-start;
+
+    .ant-col {
+      // padding-left: @margin-xs;
+      padding-right: @margin-xs;
+    }
+  }
+
+  .ant-form-item {
+    margin-bottom: 0;
+
+    .ant-select {
+      max-width: 140px;
+    }
+  }
+
+  .@{compenent-prefix-cls}-actions {
+    display: flex;
+    align-items: flex-end;
+    min-width: auto;
+    margin: 0;
+  }
+}
+
+.@{compenent-prefix-cls}-not-padding {
+  .ant-form-item-label {
+    padding: 0 !important;
+  }
+}

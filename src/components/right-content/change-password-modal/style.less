@@ -1,0 +1,25 @@
+@import (reference) '~antd/es/style/themes/index';
+
+.change-password-modal {
+  .ant-modal-body {
+    .ant-form-item-with-help .ant-form-item-explain {
+      height: @form-item-margin-bottom;
+      overflow: hidden;
+    }
+  }
+}
+
+.tip-modal {
+  .ant-modal-body {
+    font-size: @font-size-lg + 2px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    .anticon.anticon-info-circle {
+      color: @info-color;
+      margin-right: @margin-md;
+      font-size: @font-size-lg + 10px;
+    }
+  }
+}

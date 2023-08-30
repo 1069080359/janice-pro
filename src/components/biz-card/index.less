@@ -1,0 +1,15 @@
+@import (reference) '~antd/es/style/themes/index';
+@compenent-prefix-cls: ~'biz-card';
+
+.@{compenent-prefix-cls} {
+  width: 200px;
+  height: 100px;
+
+  .ant-card-body {
+    padding: @padding-xs;
+    background-color: @primary-1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}

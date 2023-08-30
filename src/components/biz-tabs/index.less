@@ -1,0 +1,30 @@
+@import (reference) '~antd/es/style/themes/index';
+@compenent-prefix-cls: ~'biz-tabs';
+
+.@{compenent-prefix-cls} {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  .ant-tabs-nav {
+    z-index: 1;
+    position: absolute;
+    top: @margin-md;
+    left: 0;
+    height: 32px;
+    margin-top: @margin-md;
+    width: auto;
+  }
+
+  .ant-tabs-content-holder {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    .mz-pro-table-list-toolbar-container {
+      height: 64px;
+    }
+  }
+}

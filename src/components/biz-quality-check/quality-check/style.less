@@ -1,0 +1,91 @@
+@import (reference) '~antd/es/style/themes/default.less';
+
+@compenent-prefix-cls: ~'mz-cmp-quality-check';
+
+.@{compenent-prefix-cls} {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &-submit {
+    text-align: right;
+  }
+
+  .ant-form-item {
+    margin-bottom: 12px;
+  }
+
+  .ant-table-container {
+    flex-direction: column;
+    border-left-color: transparent !important;
+  }
+
+  .ant-table-header,
+  .ant-table-body > table {
+    border-left: 1px solid @table-border-color;
+    border-radius: 0;
+  }
+
+  .ant-table-body {
+    flex: 1;
+  }
+
+  .ant-table-wrapper,
+  .ant-spin-nested-loading,
+  .ant-spin-container,
+  .ant-table,
+  .ant-table-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .ant-table-selection-col {
+    width: 0;
+  }
+
+  .ant-table-cell.ant-table-cell-scrollbar {
+    background-color: #fff !important;
+    border-right: none !important;
+    border: none !important;
+    position: relative;
+    top: -2px;
+
+    &:not([rowspan]) {
+      box-shadow: none !important;
+    }
+  }
+
+  .check-rule-name {
+    display: flex;
+
+    > span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &-error-amount-btn {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  &-error-state {
+    text-align: center;
+  }
+
+  .ant-select-tree-node-content-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.@{compenent-prefix-cls}-error-result-modal {
+  .@{compenent-prefix-cls}-error-result-tips {
+    margin-bottom: @margin-sm;
+  }
+}

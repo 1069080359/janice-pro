@@ -1,0 +1,146 @@
+@import (reference) '~antd/es/style/themes/index';
+@item-hover-bg: @primary-2;
+
+@border-radius-base: 4px;
+
+@success-color: #28caa3;
+
+@warning-color: #ed7b2f;
+
+@error-color: #eb3c46;
+
+@border-color-base: #cbd4dc;
+
+@border-color-split: #e4e9ee;
+
+@text-color: #4e5969;
+
+@disabled-color: #c9cdd4;
+
+@compenent-prefix-cls: ~'biz-page-container';
+
+.@{compenent-prefix-cls} {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: @component-background;
+  padding: 15px;
+
+  > .ant-pro-page-container-warp {
+    border-radius: @border-color-base;
+  }
+
+  .ant-page-header,
+  .ant-pro-page-container-children-content {
+    padding: 0;
+    margin: 0;
+    background: #fff;
+  }
+
+  .ant-page-header {
+    .ant-page-header-footer {
+      margin-top: 0;
+    }
+
+    .ant-pro-page-container-tabs {
+      > .ant-tabs-nav {
+        padding-inline: @padding-md;
+        height: 64px;
+        border-bottom: 1px solid #9a9a9a;
+
+        .ant-tabs-nav-list {
+          .ant-tabs-tab {
+            padding-inline: 10px;
+          }
+        }
+      }
+
+      > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane {
+        padding-inline: @padding-md;
+
+        &.map {
+          padding-inline: 0;
+          padding-top: @padding-md;
+        }
+      }
+    }
+
+    .ant-tabs-extra-content {
+      height: 100%;
+      height: 42px;
+
+      .ant-breadcrumb {
+        display: inline-flex;
+        align-items: center;
+        padding-right: 24px;
+        position: relative;
+
+        &::after {
+          position: absolute;
+          right: 11px;
+          top: 3px;
+          bottom: 3px;
+          content: '';
+          background-color: @border-color-base;
+          width: 1px;
+        }
+      }
+    }
+  }
+
+  .ant-pro-grid-content,
+  .ant-pro-grid-content-children,
+  .ant-pro-page-container-children-container,
+  .ant-pro-page-container-children-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .ant-pro-page-container-children-content {
+    padding-inline: @padding-md;
+  }
+
+  .ant-pro-page-container-children-container {
+    padding-block: 0;
+
+    .biz-map-container {
+      height: calc(100% - 16px);
+    }
+  }
+
+  &-tab-bar-extra-content-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .ant-pro-page-container-warp {
+    background-color: transparent;
+  }
+
+  &.has-tabs {
+    .ant-pro-page-container-warp,
+    .ant-page-header,
+    .ant-page-header-footer,
+    .ant-pro-page-container-tabs,
+    .ant-tabs-content-holder,
+    .ant-tabs-content,
+    .ant-tabs-tabpane {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .ant-tabs-tabpane.ant-tabs-tabpane-hidden {
+      display: none;
+    }
+  }
+
+  &.map {
+    .ant-pro-page-container-children-content {
+      padding-inline: 0;
+      padding-top: @padding-md;
+    }
+  }
+}

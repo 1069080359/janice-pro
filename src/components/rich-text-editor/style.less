@@ -1,0 +1,25 @@
+@import (reference) '~antd/es/style/themes/index';
+
+@compenent-prefix-cls: ~'rich-text-editor';
+@border: @border-width-base @border-style-base @border-color-split;
+
+.@{compenent-prefix-cls} {
+  &-wrapper {
+    border: @border;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-toolbar {
+      border-bottom: @border;
+    }
+
+    &-editor-main {
+      padding: @padding-xs + 2;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+}

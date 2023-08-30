@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="_layer-legend-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
+<style type="text/css">
+#_layer-legend-svg	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+</style>
+<g>
+	<rect x="93" y="608.7" class="st0" width="386.8" height="64.5"/>
+	<rect x="93" y="157.5" class="st0" width="386.8" height="193.4"/>
+	<polygon class="st0" points="737.6,415.3 802.1,415.3 802.1,286.4 931,286.4 931,221.9 802.1,221.9 802.1,93 737.6,93 737.6,221.9
+		608.7,221.9 608.7,286.4 737.6,286.4 	"/>
+	<path class="st0" d="M769.9,479.8c-89,0-161.2,72.2-161.2,161.2s72.1,161.1,161.2,161.1c89,0,161.1-72.1,161.1-161.1
+		S858.9,479.8,769.9,479.8z M769.9,737.6c-53.4,0-96.7-43.3-96.7-96.7c0-53.4,43.3-96.7,96.7-96.7c53.4,0,96.7,43.3,96.7,96.7
+		C866.5,694.3,823.3,737.6,769.9,737.6z"/>
+	<rect x="93" y="866.5" class="st0" width="838" height="64.5"/>
+</g>
+</svg>

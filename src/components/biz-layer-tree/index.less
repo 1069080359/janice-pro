@@ -1,0 +1,181 @@
+@import (reference) '~antd/es/style/themes/index';
+
+@compenent-prefix-cls: ~'biz-layer-tree';
+
+.@{compenent-prefix-cls}-panel {
+  width: 300px;
+  position: absolute;
+  top: @margin-md;
+  left: @margin-md;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: @box-shadow-base;
+  z-index: 1;
+  border-radius: @border-radius-base;
+  overflow: hidden;
+
+  .biz-layer-tree-header {
+    width: 100%;
+    height: @height-lg;
+    background-color: @primary-1;
+    padding: 0 @margin-sm 0 @padding-md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-icon {
+      font-size: @margin-md;
+    }
+
+    .icon .header-icon {
+      cursor: pointer;
+    }
+
+    .header-title {
+      font-size: @margin-md;
+      color: @text-color;
+    }
+  }
+
+  .biz-layer-tree-content {
+    flex: 1;
+    background-color: @component-background;
+    padding: @padding-md @padding-sm @padding-md;
+    overflow: hidden;
+
+    .ant-spin-nested-loading,
+    .ant-spin-container {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+  }
+
+  .biz-layer-tree {
+    &.ant-tree-show-line .ant-tree-indent-unit::before {
+      border-right-color: transparent !important;
+    }
+
+    .ant-tree-treenode {
+      overflow: hidden;
+    }
+
+    .ant-tree-node-content-wrapper {
+      overflow: hidden;
+    }
+
+    .ant-tree-node-content-wrapper.ant-tree-node-selected,
+    .ant-tree-node-content-wrapper:hover {
+      background-color: transparent;
+    }
+
+    .ant-tree-node-content-wrapper:hover {
+      color: @primary-color;
+    }
+
+    .tree-switcher-icon {
+      font-size: @font-size-lg + 2;
+      margin-top: @margin-xss;
+    }
+
+    .ant-tree-title {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    .layer-node {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      align-items: center;
+      gap: 6px;
+
+      .layer-icon {
+        display: inline-flex;
+        align-items: center;
+        height: @font-size-lg;
+        width: @font-size-lg;
+        font-size: @font-size-lg;
+        max-height: @font-size-lg;
+        max-width: @font-size-lg;
+      }
+
+      .layer-color-box {
+        height: @font-size-lg;
+        width: @font-size-lg;
+      }
+
+      .layer-title {
+        align-items: center;
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .layer-item-action {
+        display: inline-flex;
+        align-items: center;
+        height: 100%;
+        cursor: pointer;
+        padding: 4px;
+        font-size: @font-size-lg;
+
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+
+    .layer-tree-legend {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      padding-left: 44px;
+      cursor: default;
+
+      .layer-tree-legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .legend-item-icon {
+          height: @font-size-base;
+          width: @font-size-base;
+        }
+      }
+
+      &.show {
+        display: flex;
+      }
+    }
+  }
+}
+
+.@{compenent-prefix-cls}-minus-icon {
+  width: @height-base + 4;
+  height: @height-base + 4;
+  background-color: @component-background;
+  box-shadow: @box-shadow-base;
+  border-radius: @border-radius-base + 2px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  .svg-icon {
+    font-size: @font-size-lg;
+  }
+
+  .text {
+    font-size: @font-size-base;
+  }
+}

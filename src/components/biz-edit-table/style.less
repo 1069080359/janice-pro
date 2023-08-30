@@ -1,0 +1,12 @@
+@import (reference) '~antd/es/style/themes/index';
+
+@compenent-prefix-cls: ~'biz-edit-table';
+
+.@{compenent-prefix-cls} {
+  .ant-table-row .ant-table-cell {
+    > .ant-input-number,
+    > .ant-select {
+      width: 100%;
+    }
+  }
+}

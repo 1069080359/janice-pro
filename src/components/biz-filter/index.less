@@ -1,0 +1,76 @@
+@import (reference) '~antd/es/style/themes/index';
+
+.biz-filter {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  gap: @padding-sm;
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: @margin-sm;
+  }
+
+  .filter-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    padding-left: 0;
+    padding-right: @padding-xss;
+
+    .select-item-wrapper {
+      width: 100%;
+      margin-bottom: @margin-sm;
+      display: flex;
+      align-items: center;
+
+      .select-item {
+        width: 100%;
+        display: flex;
+        gap: @padding-sm;
+
+        .select-item-label {
+          width: 60px;
+          text-align: right;
+        }
+
+        .select-item-label + div {
+          flex: 1 1;
+          gap: 6px;
+        }
+
+        .list-item {
+          display: flex;
+        }
+      }
+
+      .options {
+        height: 100%;
+        display: inline-block;
+        cursor: pointer;
+        padding: 4px;
+
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: @margin-sm;
+  }
+}
+
+.add-field-popover-content {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

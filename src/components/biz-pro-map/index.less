@@ -1,0 +1,105 @@
+@import (reference) '~antd/es/style/themes/index';
+@map-area-left: 340px;
+
+.biz-map-container {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #e7f3f0;
+
+  /** 政区定位的位置 */
+  .map-area {
+    position: absolute;
+    left: @map-area-left;
+    top: @margin-md;
+    z-index: 1;
+
+    .area-title {
+      background-color: @primary-1;
+    }
+
+    .ant-popover-inner-content {
+      width: initial;
+      max-width: initial;
+    }
+  }
+
+  /** 左侧图层树收起来，政区定位的位置 */
+  .biz-layer-tree-icon + .map-area {
+    left: 60px;
+  }
+
+  /** 左侧图层树展开，政区定位的位置 */
+  .biz-layer-tree-icon.hidden-container + .map-area {
+    left: @map-area-left;
+  }
+
+  .tool-container {
+    width: 80px;
+
+    .render-list-container {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: @box-shadow-base;
+    }
+
+    .tool-item {
+      height: 36px;
+      flex-direction: row;
+      gap: 4px;
+      justify-content: flex-start;
+      padding-left: 8px;
+      color: #333;
+      border-radius: 4px;
+      font-size: @font-size-lg;
+
+      .map-select-tool-wrap,
+      .map-edit-tool-wrap {
+        justify-content: flex-start;
+        gap: 4px;
+      }
+
+      &:hover,
+      &.active {
+        background: transparent;
+        color: @primary-color;
+        box-shadow: @shadow-1-down;
+      }
+
+      span.svg-icon {
+        color: @primary-color;
+      }
+
+      &.tool-item-qp > div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 4px;
+        align-items: center;
+
+        .tool-title {
+          overflow: hidden;
+          word-break: keep-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .map-zoom-level {
+    bottom: 90px;
+  }
+
+  .trigger-layer-proxy {
+    bottom: 40px;
+  }
+
+  .tool-panel-render-in-current-wrapper {
+    z-index: 12;
+  }
+}

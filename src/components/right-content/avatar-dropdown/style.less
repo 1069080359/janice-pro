@@ -1,0 +1,35 @@
+@import (reference) '~antd/es/style/themes/index';
+@compenent-prefix-cls: ~'avatar-dropdown';
+
+.@{compenent-prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+
+  .mz-avatar {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .anticon {
+    margin-right: @margin-xs;
+    color: @primary-color;
+  }
+
+  .biz-avatar-name {
+    color: @text-color;
+    margin-left: @margin-xs;
+  }
+
+  .@{compenent-prefix-cls}-menu {
+    :global(.anticon) {
+      margin-right: @margin-xs;
+    }
+
+    :global(.ant-dropdown-menu-item) {
+      min-width: 160px;
+    }
+  }
+}

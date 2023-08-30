@@ -1,0 +1,63 @@
+@import (reference) '~antd/es/style/themes/index';
+
+@compenent-prefix-cls: ~'mz-list-card';
+
+.@{compenent-prefix-cls} {
+  width: 100%;
+
+  .ant-card-body {
+    padding: @padding-lg 0;
+
+    .ant-list-item-meta {
+      padding: @padding-xs + 2 0 @padding-xss + 1;
+      border-bottom: @border-width-base @border-style-base @normal-color;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        .ant-list-item-meta-title {
+          .title,
+          .date {
+            color: @primary-color-hover;
+          }
+        }
+      }
+
+      .row-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 (@padding-lg * 2);
+
+        .ant-typography {
+          margin: 0;
+        }
+
+        .date {
+          color: @text-color-secondary;
+          white-space: nowrap;
+          margin-left: @margin-lg;
+        }
+      }
+
+      &-title {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
+
+        > .title {
+          &::before {
+            content: '';
+            display: inline-block;
+            width: @height-sm - 20;
+            height: @height-sm - 20;
+            margin: 0 @margin-xs+2 @margin-xss;
+            background-color: @background-color-light;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}

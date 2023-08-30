@@ -1,0 +1,45 @@
+@import (reference) '~antd/es/style/themes/index';
+
+.biz-base-map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .mapzone-map-rc {
+    .map-scale-line {
+      bottom: 12px;
+      left: 12px;
+    }
+  }
+
+  .map-keyboard-shortcuts {
+    display: none;
+  }
+
+  .map-zoom-level {
+    right: 12px;
+    bottom: 68px;
+    z-index: 2;
+
+    .map-level,
+    .map-zoom-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .map-mouse-position {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    height: @height-sm;
+    padding: 0 @padding-sm;
+    color: @white;
+    font-size: @font-size-base;
+    background: ~'rgba(0, 0, 0, 0.4)';
+    border-radius: @border-radius-base;
+  }
+}

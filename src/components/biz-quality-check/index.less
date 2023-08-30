@@ -1,0 +1,27 @@
+@import (reference) '~antd/es/style/themes/index';
+
+.quality-check-rnd-provider {
+  background-color: #fff;
+
+  > .provider-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: @margin-sm;
+    padding: @padding-sm;
+
+    > .close {
+      cursor: pointer;
+      color: #666;
+    }
+  }
+
+  > .provide-body {
+    padding: 0 @padding-sm;
+    height: 540px;
+  }
+}

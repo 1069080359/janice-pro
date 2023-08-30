@@ -1,0 +1,114 @@
+@import (reference) '~antd/es/style/themes/index';
+@compenent-prefix-cls: ~'my-data';
+@border-radius: @border-radius-sm + 2;
+
+.@{compenent-prefix-cls} {
+  width: 100%;
+  height: 260px;
+  background-color: @component-background;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  // 只有一级，暂时隐藏
+  .ant-tree-switcher {
+    display: none;
+  }
+
+  .ant-tree-draggable-icon {
+    display: none;
+  }
+
+  &-header {
+    width: 100%;
+    height: @height-lg;
+    background-color: @primary-1;
+    padding: 0 @margin-sm 0 @padding-md;
+    border-top-left-radius: @border-radius;
+    border-top-right-radius: @border-radius;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-title {
+      font-size: @margin-md;
+      color: @text-color;
+    }
+  }
+
+  &-body {
+    flex: 1;
+    background-color: @component-background;
+    padding: @padding-md @padding-sm @padding-md @padding-md;
+    border-bottom-left-radius: @border-radius;
+    border-bottom-right-radius: @border-radius;
+    overflow: hidden;
+
+    .ant-spin-nested-loading,
+    .ant-spin-container {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+  }
+
+  &-import {
+    cursor: pointer;
+  }
+
+  &-tree {
+    .ant-tree-treenode {
+      align-items: center !important;
+      width: 100%;
+      padding: 0 @padding-md;
+
+      .ant-tree-checkbox {
+        margin: 0 @margin-xs 0 0;
+      }
+
+      .ant-tree-node-content-wrapper {
+        max-width: calc(100% - @height-sm);
+        height: 100%;
+        padding: 0;
+
+        &:hover,
+        &.ant-tree-node-selected {
+          background-color: transparent;
+        }
+      }
+
+      .ant-space-item .anticon :hover {
+        color: @primary-color;
+      }
+    }
+
+    .ant-tree-node-content-wrapper {
+      display: inline-flex;
+      flex-grow: 1;
+    }
+
+    .ant-tree-title {
+      display: inline-flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+
+    &-title-operation {
+      flex-shrink: 0;
+    }
+
+    &-title-text {
+      flex-grow: 1;
+      flex-shrink: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .anticon,
+  .svg-icon {
+    font-size: @font-size-lg;
+  }
+}

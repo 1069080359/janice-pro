@@ -1,0 +1,131 @@
+@import (reference) '~antd/es/style/themes/default.less';
+
+.batch-assi-modal {
+  .ant-modal-body {
+    padding: @padding-sm @padding-md + 4px @padding-md + 4px;
+    min-height: 200px;
+    display: flex;
+
+    h5.ant-typography {
+      font-size: @font-size-base;
+    }
+
+    .batch-assi-content {
+      width: 100%;
+      display: flex;
+      column-gap: 15px;
+
+      .field-table-wrapper {
+        width: 274px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .field-seach {
+          margin-bottom: @margin-sm + 1px;
+        }
+
+        .ant-card {
+          flex: 1;
+          overflow: hidden;
+
+          > .ant-card-body {
+            padding: 0;
+            height: 100%;
+
+            .field-table-wrap,
+            .ant-table-wrapper,
+            .ant-spin-nested-loading,
+            .ant-spin-container,
+            .ant-table,
+            .ant-table-container,
+            .ant-table-body {
+              height: 100%;
+              overflow: hidden;
+            }
+          }
+        }
+
+        .ant-table {
+          .ant-table-row {
+            cursor: pointer;
+
+            > td {
+              border-bottom: 0;
+            }
+          }
+
+          .ant-table-body {
+            padding: @padding-sm @padding-sm - 2px;
+          }
+
+          .ant-table-tbody > tr.ant-table-row-selected > td {
+            background-color: transparent;
+          }
+        }
+      }
+
+      .select-item-wrapper {
+        height: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .ant-card {
+          flex: 1;
+          overflow-y: auto;
+
+          .ant-card-body {
+            padding: @padding-md;
+          }
+
+          .ant-form {
+            label {
+              font-size: @font-size-sm + 1px;
+              color: #333;
+            }
+
+            .form-item-wrapper {
+              display: flex;
+              column-gap: 15px;
+              align-items: center;
+              margin-bottom: @margin-xs + 2px;
+
+              .error-form-item {
+                flex: 1;
+
+                .ant-form-item-control-input-content {
+                  .ant-input-number {
+                    width: 100%;
+                  }
+
+                  .ant-picker {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ant-modal-footer {
+    display: flex;
+    justify-content: space-between;
+
+    .ant-radio-wrapper > .ant-radio + span {
+      font-weight: bold;
+
+      .highlight-txt {
+        font-size: @font-size-sm + 1px;
+        color: ~'rgba(255, 0, 0, 1)';
+      }
+    }
+
+    .ant-popover-disabled-compatible-wrapper {
+      margin-left: @margin-xs;
+    }
+  }
+}

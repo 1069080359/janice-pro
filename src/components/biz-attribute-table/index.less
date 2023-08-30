@@ -1,0 +1,94 @@
+@import (reference) '~antd/es/style/themes/index';
+
+.biz-attribute-table-wrapper {
+  background-color: #fff;
+  border-radius: @border-radius-base;
+  padding: 0 @padding-sm @padding-sm;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  box-shadow: @box-shadow-base;
+
+  .header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
+    height: 44px;
+    line-height: 44px;
+    margin-bottom: @margin-sm;
+
+    .extra-content {
+      display: inline-flex;
+      align-items: center;
+
+      .option-item {
+        color: @primary-color;
+
+        &.minus,
+        &.close {
+          color: #666;
+          padding: 0 6px;
+        }
+      }
+    }
+  }
+
+  .attr-table-drag-handle {
+    cursor: move;
+  }
+
+  .body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    flex-direction: row;
+    gap: 8px;
+    position: relative;
+
+    .filter-collapsed-icon {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      bottom: 1px;
+      left: 0;
+      z-index: 2;
+      content: '';
+      width: 20px;
+      height: 20px;
+
+      &.collapsed .anticon {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .sidebar {
+      width: 316px;
+      height: 100%;
+      position: relative;
+    }
+
+    .mz-pro-table-container {
+      flex: 1;
+      overflow: hidden;
+    }
+  }
+}
+
+.biz-attribute-table-minus-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  bottom: 232px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-size: 18px;
+}

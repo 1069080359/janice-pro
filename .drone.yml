@@ -1,0 +1,145 @@
+kind: pipeline
+type: docker
+name: default
+
+volumes:
+  - name: node_modules
+    host:
+      path: /data/drone/cache/${DRONE_REPO}/node_modules
+  - name: docker
+    host:
+      path: /var/run/docker.sock
+
+steps:
+  - name: install
+    image: node:16-alpine
+    volumes:
+      - name: node_modules
+        path: /drone/src/node_modules
+    commands:
+      - find node_modules -maxdepth 1 -type f -name "yarn.lock" -exec cp {} ./ \;
+      - yarn
+      - /bin/cp -f yarn.lock node_modules
+    when:
+      branch:
+        - test
+        - prod
+
+  - name: build
+    image: node:16-alpine
+    depends_on:
+      - install
+    clone:
+      disable: true
+    volumes:
+      - name: node_modules
+        path: /drone/src/node_modules
+    commands:
+      - npm run build:$DRONE_TARGET_BRANCH
+      - pkgVersion="$(npm pkg get version | tr -d "\"")"
+      - echo -n "${DRONE_TARGET_BRANCH}-$pkgVersion,${DRONE_TARGET_BRANCH}-${DRONE_COMMIT:0:8}" > .tags
+      - cat .tags
+    when:
+      branch:
+        - test
+        - prod
+
+  - name: build-docker
+    pull: if-not-exists
+    image: plugins/docker
+    clone:
+      disable: true
+    depends_on:
+      - build
+    settings:
+      repo: 192.168.1.11:5000/dlwy/zllyjygl/lyjygl
+      registry: 192.168.1.11:5000
+      insecure: true
+      dockerfile: /drone/src/deploy/Dockerfile
+      context: /drone/src
+      purge: true
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    when:
+      branch:
+        - test
+        - prod
+
+  - name: deploy-scp
+    pull: if-not-exists
+    image: appleboy/drone-scp
+    clone:
+      disable: true
+    depends_on:
+      - build
+    settings:
+      host:
+        from_secret: host
+      username:
+        from_secret: username
+      password:
+        from_secret: password
+      port: 22
+      overwrite: true
+      target: /data/zllyjygl/lyjygl/confg/scp_temp
+      strip_components: 2
+      source: dist/config
+    when:
+      branch:
+        - test
+
+  - name: copy-config
+    pull: if-not-exists
+    image: appleboy/drone-ssh
+    clone:
+      disable: true
+    depends_on:
+      - deploy-scp
+    settings:
+      host:
+        from_secret: host
+      username:
+        from_secret: username
+      password:
+        from_secret: password
+      port: 22
+      script:
+        - cd /data/zllyjygl/lyjygl/confg
+        - awk 'BEGIN { cmd="cp -ri scp_temp/* ./"; print "y" |cmd; }' # 覆盖更新
+        - rm -rf /data/zllyjygl/lyjygl/confg/scp_temp # 删除临时文件
+    when:
+      branch:
+        - test
+
+  - name: deploy-docker
+    pull: if-not-exists
+    image: appleboy/drone-ssh
+    clone:
+      disable: true
+    depends_on:
+      - build-docker
+      - copy-config
+    settings:
+      host:
+        from_secret: host
+      username:
+        from_secret: username
+      password:
+        from_secret: password
+      port: 22
+      script:
+        - containerName="zllyjygl-lyjygl-${DRONE_TARGET_BRANCH}"
+        - imageFullName="192.168.1.11:5000/dlwy/zllyjygl/lyjygl:${DRONE_TARGET_BRANCH}-${DRONE_COMMIT:0:8}"
+        - echo "containerName:$containerName imageFullName:$imageFullName"
+        - docker pull $imageFullName
+        - if docker ps -a | grep $containerName | awk {'print $(NF)'} | grep -Fx $containerName; then docker stop $containerName; docker rm $containerName; fi
+        - docker run -d -p 9880:80 -v /data/zllyjygl/lyjygl/confg:/app/config --restart=always --name $containerName $imageFullName
+    when:
+      branch:
+        - test
+
+trigger:
+  branch:
+    - test
+    - prod

@@ -1,0 +1,57 @@
+@import (reference) '~antd/es/style/themes/index';
+
+@compenent-prefix-cls: ~'grid-group';
+@border: @border-width-base @border-style-base @border-color-split;
+
+.@{compenent-prefix-cls} {
+  &-group {
+    height: @height-lg + 2;
+    min-height: @height-lg + 2;
+    line-height: @height-lg + 2;
+    text-align: center;
+    font-weight: 700;
+    background-color: @background-color-base;
+    border: @border;
+    border-bottom: none;
+    .@{compenent-prefix-cls}-title {
+      height: @height-lg + 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: @font-size-lg;
+    }
+  }
+
+  &-card-margin-top {
+    margin-top: @margin-md;
+  }
+
+  &-card-margin-bottom {
+    margin-bottom: @margin-md;
+  }
+
+  &-card {
+    border-radius: @border-radius-base + 2;
+    padding: @padding-lg - 4 0;
+
+    .@{compenent-prefix-cls}-title {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+
+      &-icon {
+        width: @height-sm - 14;
+        height: @height-sm - 14;
+        margin-right: @margin-xs - 2;
+        background: @component-background;
+        border: @border-width-base + 1 @border-style-base @primary-color;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &.grid-group-card {
+    padding: 0;
+  }
+}

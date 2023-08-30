@@ -1,0 +1,17 @@
+@import (reference) '~antd/es/style/themes/index';
+
+.option-item {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  cursor: pointer;
+
+  .anticon {
+    margin-right: @margin-xss;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+}

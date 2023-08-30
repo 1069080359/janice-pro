@@ -1,0 +1,452 @@
+@import (reference) '~antd/es/style/themes/index';
+@import './animate.css';
+// @import './biz-theme.less';
+
+// @font-face {
+//   font-family: 'Source Han Sans';
+//   src: url('./assets/fonts/SourceHanSansCN-Regular.otf');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-pro-global-header-logo h1 {
+  font-size: @font-size-lg + 4px;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  /* stylelint-disable-next-line value-keyword-case */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  .ant-table {
+    /** 表格内容 */
+    &.ant-table-bordered > .ant-table-container > .ant-table-content > table > tbody > tr > td {
+      border-right: 0;
+    }
+
+    .ant-table-thead {
+      tr th {
+        font-weight: bold;
+      }
+    }
+    // 表头after修改
+    .ant-table-thead > tr > th:not(:last-child, .ant-table-selection-column, .ant-table-row-expand-icon-cell, [colspan])::before {
+      opacity: 0;
+    }
+
+    // 表格body 行修改
+    .ant-table-tbody > tr > td {
+      border-bottom: 1px dashed @table-border-color;
+    }
+
+    .ant-table-tbody > tr:nth-child(odd) {
+      background: #fafbfc;
+    }
+  }
+
+  .ant-table-pagination > .ant-pagination-total-text .key {
+    color: @primary-color;
+    margin-inline: @margin-xs;
+  }
+
+  .mz-pro-table-list-toolbar-title {
+    font-weight: bold;
+  }
+
+  .mz-dynamic-form-container .ant-form-item .ant-form-item-label {
+    width: 140px;
+  }
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.ant-pro-basicLayout {
+  .ant-layout-header {
+    background: url('./assets/images/top-nav-bg.png') no-repeat !important;
+    background-size: cover;
+  }
+
+  .ant-pro-top-nav-header.light,
+  .ant-pro-global-header {
+    background: transparent;
+    color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, 0.3);
+
+    .biz-avatar-name {
+      color: #fff;
+    }
+  }
+
+  .ant-pro-sider.ant-layout-sider {
+    background: url('./assets/images/left-nav-bg.png') no-repeat;
+    background-size: cover;
+    height: 100%;
+    inset-block-start: 0;
+    box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.45) !important;
+    z-index: 101;
+
+    .ant-pro-sider-logo {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      padding-block: 0;
+
+      & .ant-pro-sider-logo-collapsed {
+        justify-content: center;
+        padding: 0;
+        padding-inline: 0;
+      }
+    }
+
+    .ant-pro-menu-item .anticon {
+      color: #f7f7f9;
+    }
+
+    .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+      background: transparent;
+    }
+
+    .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+      background-color: rgba(0, 0, 0, 0.45);
+    }
+
+    .biz-sider-collapsed-btn {
+      position: absolute;
+      width: 40px;
+      height: 56px;
+      right: -40px;
+      font-size: @font-size-lg;
+      top: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .biz-logo-title {
+      img {
+        height: 32px;
+      }
+    }
+  }
+
+  .ant-menu-vertical .ant-menu-item {
+    padding: 0;
+  }
+
+  .ant-pro-sider.ant-layout-sider-light {
+    .ant-pro-sider-logo h1 {
+      color: #fff;
+    }
+
+    .ant-menu-item a {
+      color: rgba(255, 255, 255, 0.65);
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .ant-menu-item-selected {
+      color: #fff;
+    }
+  }
+
+  .ant-layout-header.ant-pro-layout-header-fixed-header {
+    position: absolute;
+
+    .ant-pro-global-header-logo-mix {
+      display: none;
+    }
+  }
+
+  .ant-pro-top-nav-header-menu {
+    overflow: hidden;
+  }
+
+  .biz-header-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+  }
+
+  /** 主题设置开始 */
+  .ant-pro-setting-drawer-handle {
+    z-index: 999;
+    top: 0;
+    margin-top: 12px;
+    width: 24px;
+    height: 24px;
+
+    .anticon-setting {
+      font-size: @font-size-lg !important;
+    }
+  }
+}
+
+.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-dark {
+  .ant-menu,
+  .ant-menu-sub {
+    background: #fff !important;
+    color: @text-color !important;
+  }
+
+  .ant-menu-item,
+  .ant-menu-item-group-title,
+  .ant-menu-item > a,
+  .ant-menu-item > span > a {
+    color: @text-color;
+  }
+
+  .ant-menu-item-selected,
+  .ant-menu-item-active {
+    background-color: @primary-2 !important;
+
+    > a,
+    > span > a {
+      color: @primary-color;
+    }
+  }
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.ant-pro-basicLayout-mix {
+  .ant-pro-global-header-logo {
+    width: 256px;
+  }
+}
+
+.biz-sider-collapsed-btn {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+* {
+  scrollbar-color: #e5e5e5 #f7f7f9;
+  scrollbar-width: thin;
+}
+
+/** Table tbody 高度自适应, 需table配置 scroll.y = 'auto' */
+.mz-table-auto-scroll {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  &-container {
+    max-height: 100%;
+    min-height: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    flex-basis: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /** Pro Table */
+  > .ant-pro-card {
+    height: 100%;
+
+    > .ant-pro-card-body {
+      height: 100%;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 0;
+    }
+  }
+
+  /* Table */
+
+  .ant-table-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    flex-basis: 0;
+    overflow: hidden;
+  }
+
+  .ant-spin-nested-loading {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+
+    > .ant-spin-container {
+      height: 100%;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .ant-table {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        overflow: hidden;
+
+        .ant-table-content {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          overflow: auto auto !important;
+
+          > table {
+            max-height: 100%;
+            position: relative;
+
+            .ant-table-thead {
+              position: sticky;
+              top: 0;
+              z-index: 6;
+            }
+          }
+        }
+
+        .ant-table-container {
+          height: 100%;
+          max-height: 100%;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+
+          .ant-table-header {
+            display: block;
+          }
+
+          .ant-table-body {
+            flex: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/** Tree 高度自适应 */
+.mz-tree-auto-scroll {
+  &-container {
+    max-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/** list 自动滚动条 */
+.mz-list-auto-scroll {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  flex-basis: 0;
+  height: 100%;
+  overflow: hidden;
+
+  .ant-spin-nested-loading {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    flex-basis: 0;
+    overflow: hidden;
+
+    .ant-spin-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      flex-basis: 0;
+      overflow-y: auto;
+    }
+  }
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* 纵向滚动条 */
+  height: 8px; /* 横向滚动条 */
+}
+
+/* 定义滚动条轨道 内阴影 */
+::-webkit-scrollbar-track {
+  background-color: #eee;
+  box-shadow: inset 0 0 6px transparent;
+}
+
+/* 定义滑块 内阴影 */
+::-webkit-scrollbar-thumb {
+  background-color: #bdbdbd;
+  border-radius: 8px;
+  box-shadow: inset 0 0 6px transparent;
+}
+
+@media (max-width: 768px) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+/** 主题设置结束 */
+
+.input-color-picker {
+  overflow: hidden;
+
+  .input-color-picker-content {
+    border: 1px solid #fafafa !important;
+  }
+}

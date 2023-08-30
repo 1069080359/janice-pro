@@ -1,0 +1,36 @@
+@import (reference) '~antd/es/style/themes/index';
+
+@compenent-prefix-cls: ~'editor-display-details';
+
+.@{compenent-prefix-cls} {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: @padding-sm;
+
+  &-header {
+    margin-bottom: @padding-sm;
+    text-align: center;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h2.bold-title {
+        margin: 0 !important;
+      }
+    }
+  }
+
+  &-content {
+    height: 100%;
+    flex: 1 1;
+    overflow: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
