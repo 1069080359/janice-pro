@@ -4,7 +4,6 @@
  */
 export const transformColumns = (cols: Record<string, any>[], datas: Record<string, any>[]) => {
   const [tableHeader, ...tableDatas] = datas;
-  console.log('tableHeader', tableHeader);
   const newCols = cols.map((item) => {
     const i = {
       ...item,
@@ -15,11 +14,6 @@ export const transformColumns = (cols: Record<string, any>[], datas: Record<stri
         return <span>{num} </span>;
       },
     };
-    if (i.title === '型号') {
-      return {
-        ...i,
-      };
-    }
     return {
       ...i,
     };
