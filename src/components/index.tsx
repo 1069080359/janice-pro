@@ -6,7 +6,7 @@
 // export * from './metadata-table';
 // export * from './base-map';
 // export * from './directory-tree';
-// export * from './page-container';
+export * from './page-container';
 // export * from './option-btn';
 // export * from './biz-dynamic-form';
 // export * from './biz-detail-modal';

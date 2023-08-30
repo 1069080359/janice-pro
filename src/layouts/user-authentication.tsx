@@ -13,6 +13,7 @@ import zhCN from 'antd/es/locale/zh_CN';
 import type { AuthenticationProps } from '@mapzone/hooks';
 import type { TAppConfig } from '@mapzone/utils';
 import 'moment/locale/zh-cn';
+import { localUserInfo } from '@/utils/account/local-user-info';
 
 moment.locale('zh-cn');
 
@@ -39,7 +40,7 @@ const UpdateUserInfo = () => {
 
     setInitialState((preInitialState) => ({
       ...preInitialState,
-      // userInfo,
+      userInfo: localUserInfo,
     }));
   }, []);
   return <></>;

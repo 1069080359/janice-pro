@@ -1,8 +1,8 @@
 export const localUserInfo: any = {
   orgid: 1,
-  realname: '田磊',
+  realname: 'Janice',
   userid: 115,
-  username: 'tianlei',
+  username: 'Janice',
   sysCode: 'ZLLYJY',
   districtCodes: '200000',
   sysName: 'Janice 专属',
