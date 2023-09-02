@@ -6,7 +6,7 @@
   "homepage": "./",
   "scripts": {
     "deploy": "gh-pages -d janice",
-    "deploy:hand": "git subtree push --prefix=rain-little-baby origin gh-pages",
+    "deploy:hand": "git subtree push --prefix=janice origin gh-pages",
     "analyze": "cross-env ANALYZE=1 max build",
     "prebuild": "npm run generate:webapp-config",
     "build": "max build",
