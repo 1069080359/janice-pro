@@ -1,22 +1,32 @@
+import { sheetFilterHeader } from './const';
+
 /**
  * 1、改变 表头
- * 2、可搜索 型号- 未开发
  */
 export const transformColumns = (cols: Record<string, any>[], datas: Record<string, any>[]) => {
   const [tableHeader, ...tableDatas] = datas;
   const newCols = cols.map((item) => {
-    const i = {
+    return {
       ...item,
       ellipsis: true,
       title: tableHeader[item.key],
       sorter: (a, b) => a[item.key] - b[item.key],
-      render: (num, row, index) => {
-        return <span>{num} </span>;
-      },
-    };
-    return {
-      ...i,
     };
   });
+
   return { newCols, tableDatas };
+};
+
+export const uploadHeaderRestrictions = (cols: any[]) => {
+  let success = true;
+  const fi = cols.map((v) => v.title);
+  for (let i = 0; i < sheetFilterHeader.length - 1; i++) {
+    if (fi.includes(sheetFilterHeader[i].title)) {
+      success = true;
+    } else {
+      success = false;
+      break;
+    }
+  }
+  return success;
 };
