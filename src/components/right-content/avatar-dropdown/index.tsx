@@ -24,6 +24,9 @@ export const AvatarDropdown: FsFC = () => {
       case 'edit-password':
         setChangePwdModalOpen(true);
         break;
+      case 'yzq':
+        window.open('https://1069080359.github.io/little-baby/', '_blank');
+        break;
       case 'versionlog':
         break;
       default:
@@ -48,28 +51,32 @@ export const AvatarDropdown: FsFC = () => {
   }
 
   const items: Required<MenuProps>['items'] = [
+    // {
+    //   key: 'versionlog',
+    //   label: (
+    //     <Link to="/versionlog" target="_blank">
+    //       版本说明
+    //     </Link>
+    //   ),
+    //   icon: <SnippetsOutlined />,
+    // },
+    // {
+    //   key: 'edit-password',
+    //   label: '修改密码',
+    //   icon: <EditOutlined />,
+    // },
     {
-      key: 'versionlog',
-      label: (
-        <Link to="/versionlog" target="_blank">
-          版本说明
-        </Link>
-      ),
-      icon: <SnippetsOutlined />,
-    },
-    {
-      key: 'edit-password',
-      label: '修改密码',
-      icon: <EditOutlined />,
+      key: 'yzq',
+      label: `孕周期`,
     },
     {
       type: 'divider',
     },
-    {
-      key: 'logout',
-      label: '退出登录',
-      icon: <LogoutOutlined />,
-    },
+    // {
+    //   key: 'logout',
+    //   label: '退出登录',
+    //   icon: <LogoutOutlined />,
+    // },
     {
       key: 'version',
       label: `版本号：v${WEBAPP_VERSION}`,
