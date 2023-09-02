@@ -3,7 +3,10 @@
   "version": "1.0.2",
   "private": true,
   "description": "Janice",
+  "homepage": "./",
   "scripts": {
+    "deploy": "gh-pages -d janice",
+    "deploy:hand": "git subtree push --prefix=rain-little-baby origin gh-pages",
     "analyze": "cross-env ANALYZE=1 max build",
     "prebuild": "npm run generate:webapp-config",
     "build": "max build",
@@ -84,6 +87,7 @@
     "dayjs": "^1.11.9",
     "dexie": "^3.2.4",
     "file-saver": "^2.0.5",
+    "gh-pages": "^6.0.0",
     "js-export-excel": "^1.1.4",
     "lodash": "^4.17.21",
     "mitt": "^3.0.1",
