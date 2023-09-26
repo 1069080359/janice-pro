@@ -34,5 +34,5 @@ export * from './page-container';
 // export * from './biz-edit-table';
 // export * from './biz-confirm-button';
 // export * from './biz-batch-assi';
-// export * from './biz-charts';
+export * from './biz-charts';
 // export * from './biz-date-picker';

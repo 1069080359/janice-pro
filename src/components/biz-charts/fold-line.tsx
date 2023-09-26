@@ -1,10 +1,10 @@
 import { Line } from '@ant-design/plots';
-import type { FsFC } from '@mapzone/types';
+import type { FC } from 'react';
 import type { LineConfig } from '@ant-design/plots';
 import { chartDefaultConfig } from './const';
 
 /** 折线图 */
-const FoldLine: FsFC<LineConfig> = (props) => {
+const FoldLine: FC<LineConfig> = (props) => {
   const config: LineConfig = {
     color: props?.seriesField ? chartDefaultConfig.color : chartDefaultConfig.color[0],
     padding: 'auto',

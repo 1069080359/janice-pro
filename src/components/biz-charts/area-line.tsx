@@ -1,9 +1,9 @@
 import { Area } from '@ant-design/plots';
 import type { AreaConfig } from '@ant-design/plots';
-import type { FsFC } from '@mapzone/types';
 import { chartDefaultConfig } from './const';
+import type { FC } from 'react';
 /** 面积图 */
-const AreaLine: FsFC<AreaConfig> = (props) => {
+const AreaLine: FC<AreaConfig> = (props) => {
   return <Area {...chartDefaultConfig} {...props} />;
 };
 

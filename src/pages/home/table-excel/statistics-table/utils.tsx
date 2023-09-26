@@ -30,3 +30,47 @@ export const uploadHeaderRestrictions = (cols: any[]) => {
   }
   return success;
 };
+
+export const tableDataForChartData1 = (data: Record<string, any>[]) => {
+  const result = [];
+  data.forEach((item) => {
+    const { brand, model, number, price, frequency } = item;
+    const nameX = `品牌：${brand}，型号：${model}`;
+    result.push(
+      { nameX, type: '数量', value: number },
+      { nameX, type: '单价', value: price },
+      { nameX, type: '重复次数', value: frequency },
+    );
+  });
+  return result;
+};
+
+export const tableDataForChartData2 = (data: Record<string, any>[]) => {
+  const result = [];
+
+  const brands = {};
+
+  data.forEach((obj) => {
+    if (!brands[obj.brand]) {
+      brands[obj.brand] = [];
+    }
+    brands[obj.brand].push(obj);
+  });
+
+  for (const brand in brands) {
+    const brandData = brands[brand];
+    const brandObject = {
+      name: brand,
+      brand: brand,
+      value: brandData.reduce((total, obj) => total + obj.number, 0),
+      children: brandData.map((obj) => ({
+        name: obj.model,
+        value: obj.number,
+        price: obj.price,
+      })),
+    };
+    result.push(brandObject);
+  }
+
+  return result;
+};

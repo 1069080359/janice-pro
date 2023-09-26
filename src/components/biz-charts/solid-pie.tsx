@@ -1,13 +1,13 @@
 import React from 'react';
 import { Pie, PieConfig } from '@ant-design/plots';
-import type { FsFC } from '@mapzone/types';
+import type { FC } from 'react';
 import { chartDefaultConfig } from './const';
 
 /**
  * 实心 饼图
  * innerRadius: 0.6,// 配置空心饼图
  *  */
-const SolidPie: FsFC<PieConfig> = (props) => {
+const SolidPie: FC<PieConfig> = (props) => {
   /**
    * 图表配置
    */

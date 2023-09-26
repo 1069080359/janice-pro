@@ -1,11 +1,11 @@
 import React from 'react';
 import { Column } from '@ant-design/plots';
-import type { FsFC } from '@mapzone/types';
+import type { FC } from 'react';
 import type { ColumnConfig } from '@ant-design/plots';
 import { chartDefaultConfig } from './const';
 
 /** 单条 柱状图 */
-const SingleColumn: FsFC<ColumnConfig> = (props) => {
+const SingleColumn: FC<ColumnConfig> = (props) => {
   const config: ColumnConfig = {
     label: {
       // 可手动配置 label 数据标签位置

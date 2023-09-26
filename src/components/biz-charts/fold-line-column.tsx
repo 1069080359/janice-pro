@@ -1,10 +1,10 @@
 import { DualAxes, G2 } from '@ant-design/plots';
 import type { DualAxesConfig } from '@ant-design/plots';
-import type { FsFC } from '@mapzone/types';
+import type { FC } from 'react';
 import { chartDefaultConfig } from './const';
 
 /** 折线 + 柱状图 */
-const FoldLineColumn: FsFC<DualAxesConfig> = (props) => {
+const FoldLineColumn: FC<DualAxesConfig> = (props) => {
   const { registerTheme } = G2;
   registerTheme('dual-axes-theme', {
     colors10: chartDefaultConfig.color,

@@ -22,14 +22,16 @@ import Highlighter from 'react-highlight-words';
 import ExportJsonExcel from 'js-export-excel';
 // import { exportFile } from 'table-xlsx';
 import { InboxOutlined, SearchOutlined } from '@ant-design/icons';
+import { GroupColumn } from '@/components';
 import { parseFile } from 'table-xlsx';
 import { formatBytes, trim } from '../utils';
-import { transformColumns, uploadHeaderRestrictions } from './utils';
+import { tableDataForChartData1, tableDataForChartData2, transformColumns, uploadHeaderRestrictions } from './utils';
 import { statisticalCols, sheetFilterHeader, sheetColumnWidths, xuhao, shuomingInfo } from './const';
 import type { ColumnsType, ColumnType } from 'antd/es/table';
 import type { InputRef } from 'antd';
 import type { FilterConfirmProps } from 'antd/es/table/interface';
 import './index.less';
+import TreeMapChart from '@/components/biz-charts/tree-map';
 
 const { Text, Title } = Typography;
 const prefixCls = 'statistics-table';
@@ -306,25 +308,45 @@ const StatisticsTable = () => {
   const btnitems = [
     {
       key: '1',
-      label: '按数量升序导出',
+      label: (
+        <span>
+          按<span style={{ color: '#722ed1' }}>数量</span>
+          <span style={{ color: '#f5222d' }}>升序</span>导出
+        </span>
+      ),
       sortType: 'rise',
       type: 'number',
     },
     {
       key: '2',
-      label: '按数量降序导出',
+      label: (
+        <span>
+          按<span style={{ color: '#722ed1' }}>数量</span>
+          <span style={{ color: '#2f54eb' }}>降序</span>导出
+        </span>
+      ),
       sortType: 'drop',
       type: 'number',
     },
     {
       key: '3',
-      label: '按重复次数升序导出',
+      label: (
+        <span>
+          按<span style={{ color: '#52c41a' }}>重复次数</span>
+          <span style={{ color: '#f5222d' }}>升序</span>导出
+        </span>
+      ),
       sortType: 'rise',
       type: 'frequency',
     },
     {
       key: '4',
-      label: '按重复次数降序导出',
+      label: (
+        <span>
+          按<span style={{ color: '#52c41a' }}>重复次数</span>
+          <span style={{ color: '#2f54eb' }}>降序</span>导出
+        </span>
+      ),
       sortType: 'drop',
       type: 'frequency',
     },
@@ -375,7 +397,7 @@ const StatisticsTable = () => {
     pagination: false,
     footer: renderTableFooter,
   };
-
+  console.log('bfExcelData', tableDataForChartData2(bfExcelData));
   const items = [
     {
       label: '上传表格数据',
@@ -386,6 +408,16 @@ const StatisticsTable = () => {
       label: '汇总统计表格数据',
       key: '2',
       children: <Table {...tableProps} columns={[xuhao, ...bfColumns]} dataSource={bfExcelData} />,
+    },
+    {
+      label: '汇总统计柱状图',
+      key: '3',
+      children: <GroupColumn xField="nameX" yField="value" seriesField="type" data={tableDataForChartData1(bfExcelData)} />,
+    },
+    {
+      label: '汇总统计嵌套矩形树图',
+      key: '4',
+      children: <TreeMapChart childrenData={tableDataForChartData2(bfExcelData)} />,
     },
   ];
   return (

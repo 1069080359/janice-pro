@@ -1,10 +1,10 @@
 import { Bar } from '@ant-design/plots';
-import type { FsFC } from '@mapzone/types';
+import type { FC } from 'react';
 import type { BarConfig } from '@ant-design/plots';
 import { chartDefaultConfig } from './const';
 
 /** 横向 分组 柱状图 */
-const GroupBar: FsFC<BarConfig> = (props) => {
+const GroupBar: FC<BarConfig> = (props) => {
   const config: BarConfig = {
     marginRatio: 0,
     dodgePadding: 4,
