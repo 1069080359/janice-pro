@@ -22,6 +22,11 @@ export const routes: RoutesType = [
             component: '@/pages/home/table-excel',
             name: '表格过滤',
           },
+          {
+            path: 'test-tag-msg',
+            component: '@/pages/test-tag-msg',
+            name: '通信测试',
+          },
         ],
       },
       { path: '/', redirect: '/home/tableExcel' },
