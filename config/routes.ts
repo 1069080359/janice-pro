@@ -27,6 +27,11 @@ export const routes: RoutesType = [
             component: '@/pages/test-tag-msg',
             name: '通信测试',
           },
+          {
+            path: 'baby-feeding-record',
+            component: '@/pages/baby-feeding-record',
+            name: '宝宝喂奶记录',
+          },
         ],
       },
       { path: '/', redirect: '/home/tableExcel' },
