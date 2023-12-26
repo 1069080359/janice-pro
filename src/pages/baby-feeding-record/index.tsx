@@ -3,6 +3,7 @@ import { Button, message, Table, Tabs, Space, InputNumber, Modal, Form, DatePick
 import { InboxOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { exportFile } from 'table-xlsx';
+import { intervalTime } from './utils';
 import { recordFormat, prefixCls, xuhao } from './const';
 import storage, { storageKey } from './storage';
 
@@ -48,8 +49,15 @@ const BabyFeedingRecord = () => {
     },
     {
       title: '距离上一次间隔时间',
-      dataIndex: 'intervalTime',
-      key: 'intervalTime',
+      dataIndex: 'sort',
+      key: 'sort',
+      render: (_, record, index) => {
+        const preRecprd = dataSource[index + 1];
+        if (!preRecprd) {
+          return '暂无';
+        }
+        return intervalTime(preRecprd.sort, record.sort);
+      },
     },
     {
       title: '删除',
