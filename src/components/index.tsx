@@ -36,3 +36,5 @@ export * from './page-container';
 // export * from './biz-batch-assi';
 export * from './biz-charts';
 // export * from './biz-date-picker';
+export * from './overflow-text';
+export * from './mz-ali-react-table';
